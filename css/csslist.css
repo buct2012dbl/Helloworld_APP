@@ -1,0 +1,345 @@
+.header {
+    position: fixed;
+    height: 10%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.branch {
+    height: 100%;
+    float: left;
+    padding: 0 1% 0 1%;
+    margin-right: 5%;
+    display: inline-table;
+    font-size: 5vmin;
+}
+
+.branchlink {
+    display: table-cell;
+    vertical-align: middle;
+    text-decoration: none;
+    color: white;
+}
+
+.hasbeento,
+.markthisplace,
+.targetlist {
+    height: 100%;
+    margin-left: 1%;
+    float: left;
+    padding: 0 1% 0 1%;
+    display: inline-table;
+    font-size: 3vmin;
+}
+
+a {
+    font-family: "Times New Roman", Times, Serif;
+}
+
+.hasbeentolink,
+.markthisplacelink,
+.targetlistlink {
+    display: table-cell;
+    vertical-align: middle;
+    text-decoration: none;
+    color: rgb(200, 200, 200);
+}
+
+.loginlink,
+.signuplink {
+    display: inline;
+    vertical-align: middle;
+    text-decoration: none;
+    color: rgb(200, 200, 200);
+}
+
+.hasbeentolink:hover,
+.markthisplacelink:hover,
+.targetlistlink:hover,
+.loginlink:hover,
+.signuplink:hover {
+    color: white;
+}
+
+.uservisit {
+    height: 100%;
+    float: right;
+    padding: 0 1% 0 1%;
+    display: inline-table;
+    font-size: 3vmin;
+}
+
+.uservisitlink {
+    display: table-cell;
+    vertical-align: middle;
+    color: rgb(200, 200, 200);
+}
+
+.login {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    left: 0;
+    top: 0;
+    z-index: 9999;
+    display: none;
+}
+
+.logindiv {
+    margin: auto;
+    margin-top: 10%;
+    width: 40%;
+    height: 30%;
+    background-color: white;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -ms-border-radius: 15px;
+}
+
+.exit {
+    height: 15px;
+    width: 15px;
+    float: right;
+    background-image: url("/exitpng");
+    background-size: cover;
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.username {
+    width: 90%;
+    height: 20%;
+    border-left: 0;
+    border-right: 0;
+    border-top: 1px solid rgb(200, 200, 200);
+    border-bottom: 1px solid rgb(230, 230, 230);
+    padding: 0 5% 0 5%;
+    font-size: 3vmin;
+}
+
+.password {
+    width: 90%;
+    height: 20%;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    padding: 0 5% 0 5%;
+    border-bottom: 1px solid rgb(200, 200, 200);
+    font-size: 3vmin;
+}
+
+.submit {
+    width: 100%;
+    height: 20%;
+    border: 0;
+    background-color: black;
+    color: white;
+    font-size: 3vmin;
+}
+
+.forgetpasswd {
+    display: inline-block;
+    margin-top: 3px;
+    margin-left: 3px;
+    color: black;
+}
+
+.errormsg {
+    display: inline-block;
+    margin-top: 3px;
+    float: right;
+    color: red;
+}
+
+.signup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    left: 0;
+    top: 0;
+    z-index: 9999;
+    display: none;
+}
+
+.signupdiv {
+    margin: auto;
+    margin-top: 10%;
+    width: 40%;
+    height: 40%;
+    background-color: white;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -ms-border-radius: 15px;
+}
+
+.signupusername {
+    width: 90%;
+    height: 15%;
+    border-left: 0;
+    border-right: 0;
+    border-top: 1px solid rgb(200, 200, 200);
+    border-bottom: 1px solid rgb(230, 230, 230);
+    padding: 0 5% 0 5%;
+    font-size: 3vmin;
+}
+
+.signuppassword,
+.signuppasswordagain {
+    width: 90%;
+    height: 15%;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    padding: 0 5% 0 5%;
+    border-bottom: 1px solid rgb(230, 230, 230);
+    font-size: 3vmin;
+}
+
+.signupsubmit {
+    width: 100%;
+    height: 15%;
+    border: 0;
+    background-color: black;
+    color: white;
+    font-size: 3vmin;
+}
+
+.signuperrmsg {
+    display: block;
+    margin-top: 3px;
+    float: right;
+    color: red;
+}
+
+.uploadsection {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    width: 40%;
+    height: 100%;
+    background-color: rgba(233, 233, 233, 1);
+    left: 0;
+    top: 0;
+    z-index: 9999;
+    display: none;
+    overflow: auto;
+}
+
+.upload_main {
+    height: 80%;
+    width: 100%;
+    overflow: auto;
+}
+
+.upload_choose {
+    height: 10vmin;
+}
+
+.upload_choose_button {
+    line-height: 10vmin;
+    width: 50%;
+    background: gray;
+    display: inline-block;
+    text-align: center;
+    float: left;
+    text-decoration: none;
+    color: white;
+    position: relative;
+    margin-top: 1%;
+}
+
+.upload_choose_button:active {
+    background: rgb(222, 222, 222);
+}
+
+.upload_location {
+    height: 50%;
+    width: 100%;
+    overflow: auto;
+}
+
+.upload_location_input {
+    display: block;
+    height: 22%;
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    padding:0 5% 0 5%;
+}
+
+.upload_drag_area {
+    display: none;
+    width: 50%;
+    height: 10vmin;
+    margin: 0;
+    border: 1px dashed #ddd;
+    float: left;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.upload_preview {
+    width: 100%;
+    height: 40vmin;
+    background: rgb(255,255,255);
+    float: left;
+    display: block;
+    overflow: auto;
+}
+
+.upload_append_list {
+	width: 30%;
+	display: inline-block;
+	float: left;
+	border:1px dashed #ddd;
+	text-align: center;
+}
+
+.upload_image {
+	max-height: 20vmin;
+	max-width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+.upload_delete {
+	text-decoration: none;
+	margin-left: 100%;
+	float: right;
+	display: block;
+}
+
+.label {
+	width: 20%;
+	text-align: center;
+    margin: 2% 0 0 0;
+	background: gray;
+	color: white;
+	border-top-left-radius:1vmin;
+	border-top-right-radius: 1vmin;
+}
+
+.upload_submit {
+    height: 13%;
+    width: 100%;
+}
+
+.upload_submit_btn {
+    margin: 2% auto 0 auto;
+    display: block;
+    color: white;
+    background-color: gray;
+    width: 20%;
+    height: 50%;
+    border: 0;
+    cursor: pointer;
+
+}
+
+.upload_submit_btn:active {
+    background: rgb(222, 222, 222);
+}

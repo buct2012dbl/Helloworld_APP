@@ -1,0 +1,501 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"oneplusone",
+				"oneplusone_falsefunc"
+			],
+			[
+				"oneplus",
+				"oneplusone_truefunc"
+			],
+			[
+				"ok",
+				"assert.ok(value, message);"
+			],
+			[
+				"mo",
+				"mouseenter	.mouseenter()"
+			],
+			[
+				"mous",
+				"mouseleave	.mouseleave()"
+			],
+			[
+				"in",
+				"inset"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"c",
+				"click	.click()"
+			],
+			[
+				"onc",
+				"onclick	Attr"
+			],
+			[
+				"box",
+				"box-shadow"
+			],
+			[
+				"t",
+				"table"
+			],
+			[
+				"d",
+				"display"
+			],
+			[
+				"pa",
+				"padding-top"
+			],
+			[
+				"z",
+				"z-index"
+			],
+			[
+				"to",
+				"top"
+			],
+			[
+				"m",
+				"mousedown	.mousedown()"
+			],
+			[
+				"b",
+				"bottom"
+			],
+			[
+				"o",
+				"overflow"
+			],
+			[
+				"h",
+				"height"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"a",
+				"auto"
+			],
+			[
+				"mar",
+				"margin-left"
+			],
+			[
+				"p",
+				"position"
+			],
+			[
+				"fl",
+				"float"
+			],
+			[
+				"font-",
+				"font-style"
+			],
+			[
+				"ma",
+				"margin"
+			],
+			[
+				"bo",
+				"border"
+			],
+			[
+				"mouse",
+				"mouseenter	.mouseenter()"
+			],
+			[
+				"me",
+				"meta	Tag"
+			],
+			[
+				"li",
+				"link	Tag"
+			],
+			[
+				"background-c",
+				"background-color"
+			],
+			[
+				"background",
+				"background-color"
+			],
+			[
+				"k",
+				"key"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "m",
+		"selected_items":
+		[
+			[
+				"m",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"ma",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"js",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"re",
+				"Package Control: Remove Package"
+			],
+			[
+				"h",
+				"Set Syntax: HTML"
+			],
+			[
+				"s",
+				"Set Syntax: CSS"
+			],
+			[
+				"ht",
+				"Set Syntax: HTML"
+			],
+			[
+				"setc",
+				"Set Syntax: CSS"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: re",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"mard",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"htm",
+				"Set Syntax: HTML"
+			],
+			[
+				"css",
+				"Set Syntax: CSS"
+			],
+			[
+				"rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"intall",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"ssys",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"ja",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"",
+				"Package Control: Install Package"
+			],
+			[
+				"set syn j",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"Package Control: install package",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 416.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"Default (Windows).sublime-keymap",
+			"sublime.log_commands(True)",
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/D/test earth/helloworld.html",
+		"/D/test earth/resourse/jquery-3.1.0.min.js",
+		"/D/test earth/helloworld",
+		"/E/tech-sharing/web/前端入门技术/css/tree_menu_demo.css",
+		"/E/tech-sharing/web/前端入门技术/page/qunittest.html",
+		"/E/tech-sharing/web/前端入门技术/js/tree_menu_demo.js",
+		"/E/tech-sharing/web/前端入门技术/page/tree_menu_demo.html",
+		"/E/tech-sharing/web/前端入门技术.md",
+		"/E/tech-sharing/web/前端入门技术/css/family.css",
+		"/E/tech-sharing/web/前端入门技术/css/container.css",
+		"/E/tech-sharing/web/前端入门技术/css/btn-style-01.css",
+		"/E/tech-sharing/web/前端入门技术/page/1.html",
+		"/C/Users/sony/AppData/Roaming/Sublime Text 3/Packages/User/myproject/resourse/qunit-2.0.1.css",
+		"/C/Users/sony/AppData/Roaming/Sublime Text 3/Packages/User/myproject/前端入门技术/js/js1.js",
+		"/C/Users/sony/AppData/Roaming/Sublime Text 3/Packages/User/myproject/前端入门技术/page/qunittest.html",
+		"/C/Users/sony/AppData/Roaming/Sublime Text 3/Packages/User/myproject/前端入门技术/page/1.html",
+		"/C/Users/sony/Documents/1.html",
+		"/C/Users/sony/AppData/Roaming/Sublime Text 3/Packages/User/myproject/前端入门技术.md",
+		"/C/Users/sony/AppData/Roaming/Sublime Text 3/Packages/User/myproject/js/nodejs_servertest.js",
+		"/C/Users/sony/AppData/Roaming/Sublime Text 3/Packages/User/myproject/readme.mdown",
+		"/C/Users/sony/AppData/Roaming/Sublime Text 3/Packages/User/myproject/resourse/qunit-2.0.1.js",
+		"/C/Users/sony/AppData/Roaming/Sublime Text 3/Packages/Emmet/Default (Windows).sublime-keymap",
+		"/C/Users/sony/AppData/Roaming/Sublime Text 3/Packages/Markdown Preview/MarkdownPreview.sublime-settings",
+		"/C/Users/sony/AppData/Roaming/Sublime Text 3/Packages/User/myproject/resourse/jquery-3.1.0.min.js",
+		"/C/Users/sony/AppData/Roaming/Sublime Text 3/Packages/Emmet/Emmet.sublime-settings",
+		"/C/Users/sony/AppData/Roaming/Sublime Text 3/Packages/User/myproject/js/js1.js",
+		"/C/Users/sony/AppData/Roaming/Sublime Text 3/Packages/User/myproject/css/body.css",
+		"/C/Users/sony/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/Users/sony/AppData/Roaming/Sublime Text 3/Packages/User/MarkdownPreview.sublime-settings",
+		"/C/Users/sony/AppData/Roaming/Sublime Text 3/Packages/JSLint/Default.sublime-keymap",
+		"/C/Users/sony/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/sony/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/sony/AppData/Roaming/Sublime Text 3/Packages/JSLint/JSLint.sublime-settings",
+		"/C/Users/sony/AppData/Roaming/Sublime Text 3/Packages/GitGutter/GitGutter.sublime-settings",
+		"/C/Users/sony/AppData/Roaming/Sublime Text 3/Packages/User/GitGutter.sublime-settings",
+		"/C/Users/sony/AppData/Roaming/Sublime Text 3/Packages/User/myproject/css/container.css",
+		"/C/Users/sony/AppData/Roaming/Sublime Text 3/Packages/User/myproject/page/qunittest.html",
+		"/C/Users/sony/AppData/Roaming/Sublime Text 3/Packages/User/myproject/page/1.html",
+		"/C/Users/sony/AppData/Roaming/Sublime Text 3/Packages/User/myproject/css/btn-style-01.css",
+		"/C/Users/sony/AppData/Roaming/Sublime Text 3/Packages/User/myproject/css/item.css",
+		"/C/Users/sony/AppData/Roaming/Sublime Text 3/Packages/User/myproject/css/mainmenu.css",
+		"/C/Users/sony/AppData/Roaming/Sublime Text 3/Packages/User/myproject/css/family.css",
+		"/C/Users/sony/AppData/Roaming/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
+		"/C/Users/sony/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/sony/AppData/Roaming/Sublime Text 3/Packages/User/myproject/css/btnstyle"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"true",
+			"https",
+			"HTTP",
+			"en",
+			"Bootstrap",
+			"5",
+			"V：粘贴并格式化",
+			"W：关闭所有打开文件",
+			"Ctrl",
+			"www",
+			"：闭合标签",
+			"F：查找内容",
+			"ctrl+r",
+			"wikipedia",
+			"html",
+			"HTML",
+			"Html",
+			"html",
+			"HTML",
+			"Html",
+			"	",
+			"value",
+			"  ",
+			"    ",
+			"	",
+			"    ",
+			"tab",
+			"expand",
+			"```",
+			"i m daughter2",
+			"daughter2"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"false",
+			"zh",
+			"	",
+			"zh",
+			"	",
+			"    ",
+			"		",
+			"\\t",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "requesthandler.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"C:\\Users\\sony\\AppData\\Roaming\\Sublime Text 3\\Packages\\User\\sdfg.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 190.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

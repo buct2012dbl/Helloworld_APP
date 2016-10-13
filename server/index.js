@@ -1,0 +1,12 @@
+var router = require("./router");
+var requesthandler = require("./requesthandler");
+var server = require("./server");
+var handler = {};
+handler["/index"] = requesthandler.index;
+handler["/jquery"] = requesthandler.jquery;
+handler["/csslist"] = requesthandler.csslist;
+handler["/exitpng"] = requesthandler.exitpng;
+handler["/eventjs"] = requesthandler.eventjs;
+handler["/userconfirm"] = requesthandler.userconfirm;
+handler["/saveuser"] = requesthandler.saveuser;
+server.start(router.route, handler);
