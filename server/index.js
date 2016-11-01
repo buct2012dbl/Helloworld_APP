@@ -9,4 +9,5 @@ handler["/exitpng"] = requesthandler.exitpng;
 handler["/eventjs"] = requesthandler.eventjs;
 handler["/userconfirm"] = requesthandler.userconfirm;
 handler["/saveuser"] = requesthandler.saveuser;
+handler["/upload"] = requesthandler.addmark;
 server.start(router.route, handler);

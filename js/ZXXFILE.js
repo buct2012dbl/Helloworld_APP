@@ -2,6 +2,9 @@ var ZXXFILE = {
     fileInput: null,
     dragDrop: null,
     upButton: null,
+    lat: null,
+    lng: null,
+    address: null,
     url: "",
     fileFilter: [],
     filter: function(files) {
@@ -57,6 +60,7 @@ var ZXXFILE = {
         if (location.host.indexOf("sitepointstatic") >= 0) {
             return;
         }
+        var time = new Date().getTime();
         for (var i = 0, file; file = this.fileFilter[i]; i++) {
             (function(file) {
                 var xhr = new XMLHttpRequest();
@@ -77,8 +81,8 @@ var ZXXFILE = {
                             }
                         }
                     };
-                    xhr.open("POST", self.url, true);
-                    xhr.setRequestHeader("X_FILENAME", encodeURIComponent(file.name));
+                    xhr.open("POST", self.url+"?id="+sessionStorage.getItem("id")+"&time="+time+"&name="+encodeURIComponent(file.name)+"&lat="+self.lat.val()+"&lng="+self.lng.val()+"&address="+self.address.val(), true);
+                    console.log( self.url+"?id="+sessionStorage.getItem("id")+"&time="+time+"&name="+encodeURIComponent(file.name)+"&lat="+self.lat.val()+"&lng="+self.lng.val()+"&address="+self.address.val());
                     xhr.send(file);
                 }
             })(file);

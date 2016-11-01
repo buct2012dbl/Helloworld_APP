@@ -292,6 +292,7 @@ a {
 
 .upload_append_list {
 	width: 30%;
+    height: 80%;
 	display: inline-block;
 	float: left;
 	border:1px dashed #ddd;

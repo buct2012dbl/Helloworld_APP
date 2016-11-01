@@ -51,8 +51,8 @@ function userconfirm(response, param) {
     response.writeHead(200, { contentType: "text/json", "Access-Control-Allow-Origin": "*" });
     var sqlconnection = mysql.createConnection({
         host: '127.0.0.1',
-        user: 'root',
-        password: 'root',
+        user: 'dongbaoliang',
+        password: 'dongbaoliang',
         port: '3306',
         database: 'helloworld'
     });
@@ -95,8 +95,8 @@ function saveuser(response, param) {
     response.writeHead(200, { contentType: "text/json", "Access-Control-Allow-Origin": "*" });
     var sqlconnection = mysql.createConnection({
         host: '127.0.0.1',
-        user: 'root',
-        password: 'root',
+        user: 'dongbaoliang',
+        password: 'dongbaoliang',
         port: '3306',
         database: 'helloworld'
     });
@@ -129,8 +129,8 @@ function placeshavebeen(response, param) {
     response.writeHead(200, { contentType: "text/json", "Access-Control-Allow-Origin": "*" });
     var sqlconnection = mysql.createConnection({
         host: '127.0.0.1',
-        user: 'root',
-        password: 'root',
+        user: 'dongbaoliang',
+        password: 'dongbaoliang',
         port: '3306',
         database: 'helloworld'
     });
@@ -160,12 +160,12 @@ function placeshavebeen(response, param) {
     sqlconnection.end();
 }
 
-function addmark() {
+function addmark(response, param) {
     response.writeHead(200, { contentType: "text/json", "Access-Control-Allow-Origin": "*" });
     var sqlconnection = mysql.createConnection({
         host: '127.0.0.1',
-        user: 'root',
-        password: 'root',
+        user: 'dongbaoliang',
+        password: 'dongbaoliang',
         port: '3306',
         database: 'helloworld'
     });
@@ -176,21 +176,38 @@ function addmark() {
         }
         console.log("connect succeed");
     });
-    sqlconnection.query("insert into locationlist(id,lat,lng,address) values(?,?,?,?)", [param.id, param.lat, param.lng, param.address], function(err) {
+    sqlconnection.query("select count(*) as count from locationlist where id = ? and time = ?", [param.id,param.time], function(err, rows, field) {
         var result = {};
         if (err) {
-            console.log("saveuser failed!");
+            console.log("select locationlist failed!");
             result.success = false;
-            result.err = err;
             response.end(JSON.stringify(result));
             return;
         }
-        result.success = true;
-        console.log("addmark succeed: " + JSON.stringify(result));
+        if (rows[0].count == 0) {
+            sqlconnection.query("insert into locationlist(id,lat,lng,address,time) values(?,?,?,?,?)", [param.id, param.lat, param.lng, param.address, param.time], function(err) {
+                var result = {};
+                if (err) {
+                    console.log("addmark failed! "+err);
+                    result.success = false;
+                    result.err = err;
+                    response.end(JSON.stringify(result));
+                    return;
+                }
+                result.success = true;
+                console.log("addmark succeed: " + JSON.stringify(result));
+                response.end(JSON.stringify(result));
+                sqlconnection.end();
+            });
+        }
+        console.log("select locationlist success! " + JSON.stringify(result));
         response.end(JSON.stringify(result));
     });
-    sqlconnection.end();
+
+   // sqlconnection.end();
 }
+
+
 exports.index = index;
 exports.jquery = jquery;
 exports.csslist = csslist;

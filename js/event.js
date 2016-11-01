@@ -1,3 +1,62 @@
+function initialize() {
+    var options = {
+        sky: true,
+        atmosphere: true,
+        dragging: true,
+        tilting: true,
+        zooming: true,
+        center: [46.8011, 8.2266],
+        zoom: 2
+    };
+    earth = new WE.map('earth_div', options);
+    var natural = WE.tileLayer('http://data.webglearth.com/natural-earth-color/{z}/{x}/{y}.jpg', {
+        tileSize: 256,
+        tms: true
+    });
+    natural.addTo(earth);
+
+    var toner = WE.tileLayer('http://tile.stamen.com/toner/{z}/{x}/{y}.png', {
+        attribution: 'Map tiles by Stamen Design, under CC BY 3.0. Data by OpenStreetMap, under CC BY SA.',
+        opacity: 0.6
+    });
+
+    toner.addTo(earth);
+    var before = null;
+    /*requestAnimationFrame(function animate(now) {
+        var c = earth.getPosition();
+        var elapsed = before? now - before: 0;
+        before = now;
+        earth.setCenter([c[0], c[1] + 0.1*(elapsed/30)]);
+        requestAnimationFrame(animate);
+    });*/
+    var showInfo = function(e) {
+        alert(e.latitude + ', ' + e.longitude);
+        alert('at ' + e.screenX + ', ' + e.screenY);
+    };
+    earth.on('dblclick', showInfo);
+    $.ajax({
+        url: 'http://api.map.baidu.com/highacciploc/v1?ak=CTNCAIq6rCsC561XesHUZ54qIp6lr4Bv&extensions=1,3&coord=gcj02&callback_type=jsonp',
+        type: 'get',
+        data: {},
+        dataType: "jsonp",
+        jsonp: "callback",
+        success: function(data) {
+            earth.setView([data.content.location.lat, data.content.location.lng], 2);
+            var marker = WE.marker([data.content.location.lat, data.content.location.lng]).addTo(earth);
+            marker.bindPopup('<b>你现在的位置:' + data.content.formatted_address + '</b>');
+            marker.openPopup();
+            $("#upload_location_lat").val(data.content.location.lat);
+            $("#upload_location_lng").val(data.content.location.lng);
+            $("#upload_location_address").val(data.content.formatted_address);
+        }
+    });
+}
+
+function mainpage() {
+    $("earth_div").empty();
+    //initialize();
+
+}
 function loginexitclick() {
     $(".login").fadeOut();
 }
@@ -18,7 +77,7 @@ function userloginsubmit() {
     var username = $(".username").val();
     var password = $(".password").val();
     if (username == "" || password == "") {
-        $(".errorsg").text('The insertion can\'t be empty');
+        $(".errormsg").text('The insertion can\'t be empty');
         return;
     }
     $.ajax({
@@ -31,11 +90,11 @@ function userloginsubmit() {
         },
         success: function(data) {
             if (data.success) {
-            	$(".errormsg").empty();
-            	$(".login").css("display","none");
-            	sessionStorage.currentuser = data.id;
+                $(".errormsg").empty();
+                $(".login").css("display", "none");
+                sessionStorage.setItem("id", data.id);
             } else if (!data.success) {
-                $(".errormsg").text('login failed, username or password is wrong');
+                $(".errormsg").text('login failed, username or password is wrong.');
             }
         }
     });
@@ -74,53 +133,55 @@ function usersignupsubmit() {
 }
 
 function markwhereyoure() {
-
-	$(".uploadsection").fadeIn();
+    if (sessionStorage.getItem("id"))
+        $(".uploadsection").fadeIn();
+    else
+        alert("You haven't logined.");
 }
 
 function markwhereyoure_out() {
-	$(".uploadsection").fadeOut();
+    $(".uploadsection").fadeOut();
 }
 
 function placeshavebeen() {
-        if (sessionStorage.currentuser) {
-            var options = {
-                sky: true,
-                atmosphere: true,
-                dragging: true,
-                tilting: true,
-                zooming: true,
-                center: [46.8011, 8.2266],
-                zoom: 2
-            };
-            earth = new WE.map('earth_div', options);
-            var natural = WE.tileLayer('http://data.webglearth.com/natural-earth-color/{z}/{x}/{y}.jpg', {
-                tileSize: 256,
-                tms: true
-            });
-            natural.addTo(earth);
-            var toner = WE.tileLayer('http://tile.stamen.com/toner/{z}/{x}/{y}.png', {
-                attribution: 'Map tiles by Stamen Design, under CC BY 3.0. Data by OpenStreetMap, under CC BY SA.',
-                opacity: 0.6
-            });
-            toner.addTo(earth);
-            $.ajax({
-                url: '/placeshavebeen',
-                type: 'POST',
-                dataType: 'json',
-                data: {
-                    id: sessionStorage.currentuser
-                },
-                success: function(data) {
-                    for (var i = 0; i < data.content.length; i++) {
-                        var marker = WE.marker([data.content[i].lat, data.content[i].lng]).addTo(earth);
-                        marker.bindPopup('<b>' + data.content[i].address + '</b>');
-                    }
+    if (sessionStorage.getItem("id")) {
+        var options = {
+            sky: true,
+            atmosphere: true,
+            dragging: true,
+            tilting: true,
+            zooming: true,
+            center: [46.8011, 8.2266],
+            zoom: 2
+        };
+        earth = new WE.map('earth_div', options);
+        var natural = WE.tileLayer('http://data.webglearth.com/natural-earth-color/{z}/{x}/{y}.jpg', {
+            tileSize: 256,
+            tms: true
+        });
+        natural.addTo(earth);
+        var toner = WE.tileLayer('http://tile.stamen.com/toner/{z}/{x}/{y}.png', {
+            attribution: 'Map tiles by Stamen Design, under CC BY 3.0. Data by OpenStreetMap, under CC BY SA.',
+            opacity: 0.6
+        });
+        toner.addTo(earth);
+        $.ajax({
+            url: '/placeshavebeen',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                id: sessionStorage.currentuser
+            },
+            success: function(data) {
+                for (var i = 0; i < data.content.length; i++) {
+                    var marker = WE.marker([data.content[i].lat, data.content[i].lng]).addTo(earth);
+                    marker.bindPopup('<b>' + data.content[i].address + '</b>');
                 }
-            });
+            }
+        });
 
-        } else {
-            alert("You haven't logined.");
-            return;
-        }
+    } else {
+        alert("You haven't logined.");
+        return;
     }
+}

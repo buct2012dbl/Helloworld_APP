@@ -2,65 +2,9 @@
 <html>
 
 <head>
+    <meta charset="utf-8">
     <script src="http://www.webglearth.com/v2/api.js"></script>
     <script src="/jquery"></script>
-    <script>
-    function initialize() {
-        var options = {
-            sky: true,
-            atmosphere: true,
-            dragging: true,
-            tilting: true,
-            zooming: true,
-            center: [46.8011, 8.2266],
-            zoom: 2
-        };
-        earth = new WE.map('earth_div', options);
-        var natural = WE.tileLayer('http://data.webglearth.com/natural-earth-color/{z}/{x}/{y}.jpg', {
-            tileSize: 256,
-            tms: true
-        });
-        natural.addTo(earth);
-
-        var toner = WE.tileLayer('http://tile.stamen.com/toner/{z}/{x}/{y}.png', {
-            attribution: 'Map tiles by Stamen Design, under CC BY 3.0. Data by OpenStreetMap, under CC BY SA.',
-            opacity: 0.6
-        });
-
-        toner.addTo(earth);
-        var before = null;
-        /*requestAnimationFrame(function animate(now) {
-            var c = earth.getPosition();
-            var elapsed = before? now - before: 0;
-            before = now;
-            earth.setCenter([c[0], c[1] + 0.1*(elapsed/30)]);
-            requestAnimationFrame(animate);
-        });*/
-        var showInfo = function(e) {
-            alert(e.latitude + ', ' + e.longitude);
-            alert('at ' + e.screenX + ', ' + e.screenY);
-        };
-        earth.on('dblclick', showInfo);
-        $.ajax({
-            url: 'http://api.map.baidu.com/highacciploc/v1?ak=CTNCAIq6rCsC561XesHUZ54qIp6lr4Bv&extensions=1,3&coord=gcj02&callback_type=jsonp',
-            type: 'get',
-            data: {},
-            dataType: "jsonp",
-            jsonp: "callback",
-            success: function(data) {
-                earth.setView([data.content.location.lat, data.content.location.lng], 2);
-                var marker = WE.marker([data.content.location.lat, data.content.location.lng]).addTo(earth);
-                marker.bindPopup('<b>你现在的位置:' + data.content.formatted_address + '</b>');
-                marker.openPopup();
-                $("#upload_location_lat").val(data.content.location.lat);
-                $("#upload_location_lng").val(data.content.location.lng);
-                $("#upload_location_address").val(data.content.formatted_address);
-            }
-        });
-    }
-
-    
-    </script>
     <style>
     html,
     body {
@@ -82,11 +26,11 @@
     <title>WebGL Earth API: Overlays</title>
 </head>
 
-<body onload="initialize()">
+<body onload="initialize();">
     <div id="earth_div"></div>
     <div class="header">
         <div class="branch">
-            <a href="javascript:void(0);" class="branchlink">ZHAOWENQI's APP</a>
+            <a href="javascript:void(0);" class="branchlink" onclick="mainpage();">ZHAOWENQI's APP</a>
         </div>
         <div class="hasbeento">
             <a href="javascript:void(0);" class="hasbeentolink" onclick="placeshavebeen();">Places you've been</a>
@@ -123,7 +67,7 @@
             <p class="signuperrmsg"></p>
         </div>
     </div>
-    <form action="" id="uploadForm" method="post" enctype="multipart/form-data">
+    <form action="/upload" id="uploadForm" method="post" enctype="multipart/form-data">
         <div class="uploadsection">
             <a href="javascript:;" onclick="markwhereyoure_out();"><img src="/exitpng" style="width:5vmin;height:5vmin;float:right"/></a>
             <div class="upload_main">
@@ -159,7 +103,11 @@
         fileInput: $("#fileImage").get(0),
         dragDrop: $("#fileDragArea").get(0),
         upButton: $("#fileSubmit").get(0),
+        lat:$("#upload_location_lat"),
+        lng:$("#upload_location_lng"),
+        address:$("#upload_location_address"),
         url: $("#uploadForm").attr("action"),
+       
         filter: function(files) {
             var arrFiles = [];
             for (var i = 0, file; file = files[i]; i++) {
@@ -221,7 +169,7 @@
         },
         onProgress: function(file, loaded, total) {
             var eleProgress = $("#uploadProgress_" + file.index),
-                percent = (load / total * 100).toFixed(2) + '%';
+                percent = (loaded / total * 100).toFixed(2) + '%';
             eleProgress.show().html(percent);
         },
         onSuccess: function(file, response) {
