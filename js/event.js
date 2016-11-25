@@ -6,6 +6,7 @@ function initialize() {
         tilting: true,
         zooming: true,
         center: [46.8011, 8.2266],
+        scrollWheelZoom:true,
         zoom: 2
     };
     earth = new WE.map('earth_div', options);
@@ -45,6 +46,9 @@ function initialize() {
             var marker = WE.marker([data.content.location.lat, data.content.location.lng]).addTo(earth);
             marker.bindPopup('<b>你现在的位置:' + data.content.formatted_address + '</b>');
             marker.openPopup();
+            sessionStorage.setItem("lat", data.content.location.lat);
+            sessionStorage.setItem("lng", data.content.location.lng);
+            sessionStorage.setItem("address", data.content.formatted_address)
             $("#upload_location_lat").val(data.content.location.lat);
             $("#upload_location_lng").val(data.content.location.lng);
             $("#upload_location_address").val(data.content.formatted_address);
@@ -52,11 +56,53 @@ function initialize() {
     });
 }
 
+function pvbinit() {
+    var options = {
+        sky: true,
+        atmosphere: true,
+        dragging: true,
+        tilting: true,
+        zooming: true,
+        center: [46.8011, 8.2266],
+        scrollWheelZoom:true,
+        zoom: 2
+    };
+    earth = new WE.map('earth_div', options);
+    var natural = WE.tileLayer('http://data.webglearth.com/natural-earth-color/{z}/{x}/{y}.jpg', {
+        tileSize: 256,
+        tms: true
+    });
+    natural.addTo(earth);
+    var toner = WE.tileLayer('http://tile.stamen.com/toner/{z}/{x}/{y}.png', {
+        attribution: 'Map tiles by Stamen Design, under CC BY 3.0. Data by OpenStreetMap, under CC BY SA.',
+        opacity: 0.6
+    });
+    toner.addTo(earth);
+    $.ajax({
+        url: '/placeshavebeen',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            id: sessionStorage.getItem("id")
+        },
+        success: function(data) {
+            earth.setView([sessionStorage.getItem("lat"), sessionStorage.getItem("lng")], 2);
+            for (var i = 0; i < data.content.length; i++) {
+                var marker = WE.marker([data.content[i].lat, data.content[i].lng]).addTo(earth);
+                marker.bindPopup('<b>' + data.content[i].address + '</b>');
+            }
+        }
+    });
+    $("#upload_location_lat").val(sessionStorage.getItem("lat"));
+    $("#upload_location_lng").val(sessionStorage.getItem("lng"));
+    $("#upload_location_address").val(sessionStorage.getItem("address"));
+}
+
 function mainpage() {
-    $("earth_div").empty();
-    //initialize();
+    window.location.href = "/index";
 
 }
+
 function loginexitclick() {
     $(".login").fadeOut();
 }
@@ -133,9 +179,10 @@ function usersignupsubmit() {
 }
 
 function markwhereyoure() {
-    if (sessionStorage.getItem("id"))
+    if (sessionStorage.getItem("id")) {
         $(".uploadsection").fadeIn();
-    else
+
+    } else
         alert("You haven't logined.");
 }
 
@@ -145,40 +192,8 @@ function markwhereyoure_out() {
 
 function placeshavebeen() {
     if (sessionStorage.getItem("id")) {
-        var options = {
-            sky: true,
-            atmosphere: true,
-            dragging: true,
-            tilting: true,
-            zooming: true,
-            center: [46.8011, 8.2266],
-            zoom: 2
-        };
-        earth = new WE.map('earth_div', options);
-        var natural = WE.tileLayer('http://data.webglearth.com/natural-earth-color/{z}/{x}/{y}.jpg', {
-            tileSize: 256,
-            tms: true
-        });
-        natural.addTo(earth);
-        var toner = WE.tileLayer('http://tile.stamen.com/toner/{z}/{x}/{y}.png', {
-            attribution: 'Map tiles by Stamen Design, under CC BY 3.0. Data by OpenStreetMap, under CC BY SA.',
-            opacity: 0.6
-        });
-        toner.addTo(earth);
-        $.ajax({
-            url: '/placeshavebeen',
-            type: 'POST',
-            dataType: 'json',
-            data: {
-                id: sessionStorage.currentuser
-            },
-            success: function(data) {
-                for (var i = 0; i < data.content.length; i++) {
-                    var marker = WE.marker([data.content[i].lat, data.content[i].lng]).addTo(earth);
-                    marker.bindPopup('<b>' + data.content[i].address + '</b>');
-                }
-            }
-        });
+        window.location.href = "/placesyouhavebeen"
+
 
     } else {
         alert("You haven't logined.");

@@ -20,6 +20,15 @@ function jquery(response, param) {
     });
 }
 
+function pvbpage(response, param) {
+    console.log("places-you-have-been has been called");
+    response.writeHead(200,{contentType:"text/html" ,"Access-Control-Allow-Origin": "*"});
+    var indexpath = "../page/placesyouvebeen.html";
+    fs.readFile(indexpath,function(err, data) {
+        response.end(data);
+    });
+}
+
 function csslist(response, param) {
     console.log("csslist has been called");
     response.writeHead(200, { contentType: "text/css", "Access-Control-Allow-Origin": "*" });
@@ -143,6 +152,7 @@ function placeshavebeen(response, param) {
     });
     sqlconnection.query("select * from locationlist where id=?", [param.id], function(err, rows, field) {
         var result = {};
+        console.log(JSON.stringify(param));
         if (err) {
             console.log("select locationlist failed!");
             result.success = false;
@@ -157,7 +167,7 @@ function placeshavebeen(response, param) {
         console.log("select locationlist success! " + JSON.stringify(result));
         response.end(JSON.stringify(result));
     });
-    sqlconnection.end();
+    //sqlconnection.end();
 }
 
 function addmark(response, param) {
@@ -217,3 +227,4 @@ exports.userconfirm = userconfirm;
 exports.saveuser = saveuser;
 exports.placeshavebeen = placeshavebeen;
 exports.addmark = addmark;
+exports.pvbpage = pvbpage;

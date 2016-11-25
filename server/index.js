@@ -10,4 +10,6 @@ handler["/eventjs"] = requesthandler.eventjs;
 handler["/userconfirm"] = requesthandler.userconfirm;
 handler["/saveuser"] = requesthandler.saveuser;
 handler["/upload"] = requesthandler.addmark;
+handler["/placeshavebeen"] = requesthandler.placeshavebeen;
+handler["/placesyouhavebeen"] = requesthandler.pvbpage;
 server.start(router.route, handler);
